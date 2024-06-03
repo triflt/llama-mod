@@ -6,7 +6,7 @@ Inspired by ["sramshetty/mixture-of-depths"](https://github.com/sramshetty/mixtu
 
 1. Look how to setup env for Llama 2 [here](https://github.com/meta-llama/llama)
 
-2. 
+2. Install reqirements
 ```bash
 pip install -r "reqirements.txt"
 ```
