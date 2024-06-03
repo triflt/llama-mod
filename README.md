@@ -15,5 +15,5 @@ pip install -r "reqirements.txt"
 
 ## Result:
 ![Comparison](images/comparison.png)
-- The value of the loss function is up to 40% lower for the MoD architecture than for the default Llama.
+#### The value of the loss function is up to 40% lower for the MoD architecture than for the default Llama.
 

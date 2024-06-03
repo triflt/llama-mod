@@ -288,7 +288,6 @@ class MoDBlock(nn.Module):
             torch.Tensor: Output tensor after applying attention and feedforward layers.
 
         """
-        # TODO: support batch inference
         seq_len = x.size(1)
         token_weights = None
         aux_weights = None
