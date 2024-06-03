@@ -1,6 +1,6 @@
 # Mixture of Depths
 An unofficial implementation of ["Mixture-of-Depths: Dynamically allocating compute in transformer-based language models"](https://arxiv.org/abs/2404.02258)
-Inspired by ["sramshetty/mixture-of-depths"](https://github.com/sramshetty/mixture-of-depths)
+Inspired by [sramshetty/mixture-of-depths](https://github.com/sramshetty/mixture-of-depths)
 
 ## Quick Start
 

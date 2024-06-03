@@ -85,7 +85,7 @@ class MoDLlama:
         if not torch.distributed.is_initialized():
             # torch.distributed.init_process_group("nccl")
             os.environ['MASTER_ADDR'] = 'localhost'
-            os.environ['MASTER_PORT'] = '1234'
+            os.environ['MASTER_PORT'] = '123'
             torch.distributed.init_process_group(backend='gloo', rank=0, world_size=1)
         if not model_parallel_is_initialized():
             if model_parallel_size is None:

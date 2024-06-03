@@ -8,6 +8,8 @@ __pycache__/
 
 models/*
 tokenizer.model
+runs/*
+.DS_Store
 
 # Distribution / packaging
 .Python

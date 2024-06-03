@@ -47,10 +47,12 @@ class MoDLlamaTrainer():
         use_aux_predictor=False,
         aux_epochs=1,
         log_steps=1000,
-        device='cpu'
+        device='cpu',
+        writer=None
     ):  
         self.model.train()
         self.save_params(model_dir)
+        self.writer = writer
 
         min_loss = float("inf")
         criterion = nn.CrossEntropyLoss(ignore_index=self.tokenizer.pad_id)
@@ -89,12 +91,14 @@ class MoDLlamaTrainer():
 
                 running_loss += loss.detach().cpu().item()
 
+                avg_loss = running_loss / (i+1)
                 if (i+1) % log_steps == 0:
-                    avg_loss = running_loss / (i+1)
                     print(f"Loss at step {i+1}: {avg_loss}")
                     if use_aux_loss:
                         avg_causal_loss = running_causal_loss / (i+1)
                         print(f"Causal Loss at step {i+1}: {avg_causal_loss}")
+                if (i+1) % 100 == 0:
+                    self.writer.add_scalar('Loss/train', avg_loss, i)
 
             epoch_loss = running_loss / len(self.dataloader)
 
@@ -161,3 +165,5 @@ class MoDLlamaTrainer():
                 torch.save(self.model.state_dict(), prev_ckpt_path)
                 
                 print(f"Epoch {epoch+1}/{aux_epochs} for aux router - Causal Loss: {epoch_loss}")
+
+        self.writer.close()
