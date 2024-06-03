@@ -14,6 +14,6 @@ pip install -r "reqirements.txt"
 3. Try out the notebook `training.ipynb`
 
 ## Result:
-[Comparison](images/comparison.png)
+![Comparison](images/comparison.png)
 - The value of the loss function is up to 40% lower for the MoD architecture than for the default Llama.
 
